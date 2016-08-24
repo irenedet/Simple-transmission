@@ -76,7 +76,7 @@ a += SymbolicBFI( 1.e2 *  (uext.Trace() - uint.Trace()) * (vext.Trace() - vint.T
 #c = Preconditioner(a, type="multigrid", flags = { "smoother" : "block" } )
 
 f = LinearForm(V)
-f += SymbolicLFI( curlEin * Cross(nv,vint.Trace()),BND,definedon=mesh.Boundaries("interface"))
+f += SymbolicLFI( curlEin * Cross(nv,vext.Trace()),BND,definedon=mesh.Boundaries("interface"))
 f += SymbolicLFI( -1.e2 *  Ein * (vext.Trace()-vint.Trace()),BND,definedon=mesh.Boundaries("interface"))
 
 u = GridFunction(V)
